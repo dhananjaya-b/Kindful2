@@ -22,6 +22,7 @@ public class SignUpFund extends AppCompatActivity {
             public void onClick(View view){
                 Intent intent=new Intent(SignUpFund.this,Login.class);
                 startActivity(intent);
+                finish();
             }
 
         });

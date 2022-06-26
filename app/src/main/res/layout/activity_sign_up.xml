@@ -121,10 +121,11 @@
         android:transitionName="button_tran"/>
 
     <Button
+        android:id="@+id/signlogin_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#00000000"
         android:text="Already have an acount? LogIn"
         android:textColor="#000"
-        android:transitionName="login_signup_tran"/>
+        android:transitionName="login_signup_tran" />
 </LinearLayout>

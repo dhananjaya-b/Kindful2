@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Kindful/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1965" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/activity_check.xml" value="0.25" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/activity_donate.xml" value="0.20521590423257802" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/activity_donator_home.xml" value="0.23684210526315788" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/activity_dummy.xml" value="0.20521590423257802" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/activity_main2.xml" value="0.20521590423257802" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/activity_sign_up.xml" value="0.24635416666666668" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/activity_sign_up_fund.xml" value="0.24635416666666668" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/activity_user_home.xml" value="0.20901639344262296" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/fragment_descfragment.xml" value="0.24635416666666668" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/fragment_home.xml" value="0.24635416666666668" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/fragment_notifications.xml" value="0.25" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/fragment_recfragment.xml" value="0.24635416666666668" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/item.xml" value="0.24635416666666668" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/itemsrc.xml" value="0.24635416666666668" />
+        <entry key="..\:/Kindful/app/src/main/res/layout/singlerowdesign.xml" value="0.2" />
+        <entry key="..\:/Kindful/app/src/main/res/menu/bottom_nav_menu.xml" value="0.24635416666666668" />
+        <entry key="..\:/Kindful/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.121" />
+        <entry key="..\:/Kindful/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.121" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

@@ -44,7 +44,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/name"
+            android:id="@+id/fullname"
             android:hint="Full Name"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -111,14 +111,15 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/signpBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="GO"
-        android:background="#000"
-        android:textColor="#fff"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:transitionName="button_tran"/>
+        android:background="#000"
+        android:text="GO"
+        android:textColor="#fff"
+        android:transitionName="button_tran" />
 
     <Button
         android:id="@+id/signlogin_button"

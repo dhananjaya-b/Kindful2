@@ -109,7 +109,7 @@ public class SignUpFund extends AppCompatActivity {
                             AddUserData(currentUid,usernameS,fullnameS,phonenoS,detailsS,amountS,BankNameS,bankAccS,IFSCcodeS);
 
                             Toast.makeText(getApplicationContext(),currentUid,Toast.LENGTH_SHORT).show();
-                            Intent intent=new Intent(SignUpFund.this,UserHome.class);
+                            Intent intent=new Intent(SignUpFund.this,RecieverHome.class);
                             startActivity(intent);
                             return;
                         }

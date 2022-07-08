@@ -1,6 +1,9 @@
 package com.example.kindful;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,8 +28,11 @@ public class UserHome extends AppCompatActivity {
     MyAdapter1 myAdapter;
     ArrayList<model> list;
     UserData post;
+    Button btnT;
+    Bundle bundle=new Bundle();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home);
         user=findViewById(R.id.username);
@@ -44,7 +50,7 @@ public class UserHome extends AppCompatActivity {
         //recyclerView =().findViewById(R.id.list_item);
         database=FirebaseDatabase.getInstance().getReference("RecieverData");
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
         list = new ArrayList<>();
         myAdapter = new MyAdapter1(this,list);
@@ -84,6 +90,7 @@ public class UserHome extends AppCompatActivity {
                  post = dataSnapshot.getValue(UserData.class);
                 //System.out.println("username"+post.getUsername());
                 user.setText("Welcome, "+post.getUsername());
+                bundle.putString("username",post.getUsername());
                 //System.out.println("fullname"+post.getFullname());
                // System.out.println("phoneno"+post.getPhoneNumber());
                // System.out.println("donr"+post.getIsDonor());

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecieverHome">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:background="@color/purple_500">
+
+            <TextView
+                android:id="@+id/usernamer"
+                android:layout_width="250dp"
+                android:layout_height="39dp"
+                android:fontFamily="@font/bungee"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.097"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="63dp"
+                android:layout_height="52dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.811"
+                app:layout_constraintStart_toEndOf="@+id/usernamer"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.487"
+                tools:srcCompat="@tools:sample/avatars" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical"
+            android:padding="20dp"
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/logo_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/istockphoto_1256079963_1024x1024"
+                android:transitionName="logo_image" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-20dp"
+                android:fontFamily="@font/andika"
+                android:text="Your Details"
+                android:textColor="#000"
+                android:textSize="30sp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="Full Name :"
+                    android:textSize="25sp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/fullname"
+                    android:layout_width="242dp"
+                    android:layout_height="wrap_content"
+                    android:text="Ashwin K P:"
+                    android:textSize="25sp">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="Details :"
+                    android:textSize="25sp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/deatils"
+                    android:layout_width="242dp"
+                    android:layout_height="wrap_content"
+                    android:text="Full Name :"
+                    android:textSize="25sp">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="Amount :"
+                    android:textSize="25sp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/amount"
+                    android:layout_width="242dp"
+                    android:layout_height="wrap_content"
+                    android:text="10000RP"
+                    android:textSize="25sp">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="Recievd :"
+                    android:textSize="25sp">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/amountRecieved"
+                    android:layout_width="242dp"
+                    android:layout_height="wrap_content"
+                    android:text="10000RP"
+                    android:textSize="25sp">
+
+                </TextView>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

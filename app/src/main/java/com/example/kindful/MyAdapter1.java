@@ -11,6 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 
 public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
@@ -41,7 +44,6 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
                  System.out.println(user.getFullname().toString());
                 System.out.println(user.getDetails().toString());
                 System.out.println(user.getAmount().toString());
-
 // creating a intent
                 Intent intent = new Intent(view.getContext(),Donate.class);
 
@@ -50,6 +52,8 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
                 bundle.putString("name", user.getFullname());
                 bundle.putString("details", user.getDetails());
                 bundle.putString("amount", user.getAmount());
+                bundle.putString("phone",user.getPhoneNumber());
+                bundle.putString("recieverId", user.getUserUID());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
 //                AppCompatActivity activity=(AppCompatActivity)view.getContext();

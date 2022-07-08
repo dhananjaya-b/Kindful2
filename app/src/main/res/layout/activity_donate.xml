@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-20dp"
-            android:fontFamily="@font/bungee"
+            android:fontFamily="@font/andika"
             android:text="Donate"
             android:textSize="40sp"
             android:textColor="#000"/>
@@ -100,17 +100,41 @@
 
             </TextView>
         </LinearLayout>
-
-        <Button
-            android:id="@+id/signinBtn"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="#000"
-            android:text="DONATE"
-            android:textColor="#fff"
-            android:transitionName="button_tran" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/amountPay"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="245dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:hint="Enter Amount"
+                android:transitionName="username_tran">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="245dp"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/paybtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="#000"
+                android:text="DONATE"
+                android:textColor="#fff"
+                android:transitionName="button_tran" />
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 </ScrollView>

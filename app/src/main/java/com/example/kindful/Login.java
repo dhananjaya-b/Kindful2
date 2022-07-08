@@ -24,6 +24,11 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
      Button callSignUp,login_btn;
@@ -72,6 +77,7 @@ public class Login extends AppCompatActivity {
                                     //updateUI(user);
                                     Toast.makeText(Login.this, "Successful",
                                             Toast.LENGTH_SHORT).show();
+                                    redirect();
                                     Intent intent=new Intent(Login.this, UserHome.class);
                                     startActivity(intent);
                                 } else {
@@ -84,7 +90,18 @@ public class Login extends AppCompatActivity {
                             }
                         });
 
+
             }
         });
+    }
+    public void redirect(){ ///checking is Donor or not
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("DonorData").child(uid);
+        if(dbRef.child("isDonor").equals("true")){
+            System.out.println("yessssssssssssssssssssssss");
+        }
+        else {
+            System.out.println("noooooooooooooooooooooo");
+        }
     }
 }

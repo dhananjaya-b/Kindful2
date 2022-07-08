@@ -11,6 +11,9 @@ public class RecieverDetails implements Parcelable{
     private String isDonor;
     private  String details,amount,BankName,bankAcc,IFSCcode,Email;
 
+    public RecieverDetails() {
+    }
+
     protected RecieverDetails(Parcel in) {
         details = in.readString();
         amount = in.readString();

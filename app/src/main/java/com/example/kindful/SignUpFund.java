@@ -24,6 +24,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SignUpFund extends AppCompatActivity {
     Button signloginfund;
     Button signBtn;
@@ -123,7 +126,7 @@ public class SignUpFund extends AppCompatActivity {
         });
     }
     public void AddUserData(String currentUid,String usernameS,String fullnameS,String phonenoS,String detailsS,String amountS,String BankNameS,String bankAccS,String IFSCcodeS){
-
+        firebaseDatabase.getReference("RedirectInfo").child(currentUid).child("info").setValue("No");
         RecieverDetails recieverdetails=new RecieverDetails(currentUid,usernameS,fullnameS,phonenoS,isDonor,detailsS,amountS,BankNameS,bankAccS,IFSCcodeS);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -146,4 +149,5 @@ public class SignUpFund extends AppCompatActivity {
                 return;
             }
         });
+
     }}

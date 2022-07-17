@@ -37,6 +37,7 @@ public class Login extends AppCompatActivity {
    TextInputLayout username,password;
    EditText useranme1,password1;
    FirebaseAuth mAuth;
+    String info;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,8 +79,7 @@ public class Login extends AppCompatActivity {
                                     Toast.makeText(Login.this, "Successful",
                                             Toast.LENGTH_SHORT).show();
                                     redirect();
-                                    Intent intent=new Intent(Login.this, UserHome.class);
-                                    startActivity(intent);
+//
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Log.w(TAG, "signInWithCustomToken:failure", task.getException());
@@ -95,13 +95,30 @@ public class Login extends AppCompatActivity {
         });
     }
     public void redirect(){ ///checking is Donor or not
+
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference("DonorData").child(uid);
-        if(dbRef.child("isDonor").equals("true")){
-            System.out.println("yessssssssssssssssssssssss");
-        }
-        else {
-            System.out.println("noooooooooooooooooooooo");
-        }
+        com.google.firebase.database.DatabaseReference database;
+       // database=FirebaseDatabase.getInstance().getReference("DonorData").child(uid).child("isDonor");
+        FirebaseDatabase.getInstance().getReference("RedirectInfo").child(uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                RedirectionModal post = dataSnapshot.getValue(RedirectionModal.class);
+                info=post.getInfo();
+                System.out.println("info----------------------"+post.getInfo());
+                if(info.equals("Yes")){
+                    Intent intent=new Intent(Login.this, UserHome.class);
+                    startActivity(intent);
+                }
+                else if(info.equals("No")){
+                    Intent intent=new Intent(Login.this, RecieverHome.class);
+                    startActivity(intent);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
     }
 }

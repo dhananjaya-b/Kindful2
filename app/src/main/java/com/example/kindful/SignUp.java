@@ -84,7 +84,7 @@ public class SignUp extends AppCompatActivity {
 
                                     FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser() ;
                                     String currentUid=currentFirebaseUser.getUid().toString();
-
+                                    firebaseDatabase.getReference("RedirectInfo").child(currentUid).child("info").setValue("Yes");
                                     DonorData donordata=new DonorData(currentUid,userName,fullName,phoneNO,isDonor);
                                     databaseReference.addValueEventListener(new ValueEventListener() {
                                         @Override
@@ -111,6 +111,7 @@ public class SignUp extends AppCompatActivity {
                                 }
                             }
                         });
+
             }
         });
     }

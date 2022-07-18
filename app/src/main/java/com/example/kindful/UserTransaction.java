@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -42,7 +43,9 @@ public class UserTransaction extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     TransactionModel user = dataSnapshot.getValue(TransactionModel.class);
-                    list.add(user);
+                    if(user.getSenderId().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                        list.add(user);
+                    }
                 }
                 trasactionAdapter.notifyDataSetChanged();
             }

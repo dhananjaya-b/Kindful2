@@ -21,8 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class UserHome extends AppCompatActivity {
-
-    private TextView user;
+    private TextView user ,transactionBtn;
     private RecyclerView recyclerView;
     com.google.firebase.database.DatabaseReference database;
     MyAdapter1 myAdapter;
@@ -38,6 +37,14 @@ public class UserHome extends AppCompatActivity {
         user=findViewById(R.id.username);
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         System.out.println(uid);
+        transactionBtn=findViewById(R.id.transactionBtn);
+        transactionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(UserHome.this,UserTransaction.class);
+                startActivity(intent);
+            }
+        });
         try{
             userdataFetcher(uid);
 
@@ -46,54 +53,35 @@ public class UserHome extends AppCompatActivity {
             Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
         }
         recyclerView = (RecyclerView) findViewById(R.id.list_item);
-        //recyclerView = (RecyclerView) rootView.findViewById(R.id.list_item);
-        //recyclerView =().findViewById(R.id.list_item);
         database=FirebaseDatabase.getInstance().getReference("RecieverData");
         recyclerView.setHasFixedSize(true);
-
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list = new ArrayList<>();
         myAdapter = new MyAdapter1(this,list);
         recyclerView.setAdapter(myAdapter);
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-
                     model user = dataSnapshot.getValue(model.class);
                     list.add(user);
-
+                    System.out.println("----------------------------------");
                 }
                 myAdapter.notifyDataSetChanged();
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
-
     }
-
     private void userdataFetcher(String uid) {
-
-        //
-
-       // DatabaseReference ref = database.getReference("DonorData");
         database=FirebaseDatabase.getInstance().getReference("DonorData");
-// Attach a listener to read the data at our posts reference
         database.child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                 post = dataSnapshot.getValue(UserData.class);
-                //System.out.println("username"+post.getUsername());
+                post = dataSnapshot.getValue(UserData.class);
                 user.setText("Welcome, "+post.getUsername());
                 bundle.putString("username",post.getUsername());
-                //System.out.println("fullname"+post.getFullname());
-               // System.out.println("phoneno"+post.getPhoneNumber());
-               // System.out.println("donr"+post.getIsDonor());
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {

@@ -18,9 +18,10 @@ import java.util.ArrayList;
 public class RecieverHome extends AppCompatActivity {
     TextView fullname,details,amount,rcvdamount;
     private TextView user;
+    Integer total=0;
     com.google.firebase.database.DatabaseReference database;
     RecieverDetails post;
-    ArrayList<RecieverDetails> list;
+    ArrayList<TransactionModel> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +35,7 @@ public class RecieverHome extends AppCompatActivity {
         System.out.println(uid);
         try{
             userdataFetcher(uid);
+            cal();
         }
         catch (Exception e){
             Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
@@ -56,5 +58,27 @@ public class RecieverHome extends AppCompatActivity {
                 System.out.println("The read failed: " + databaseError.getCode());
             }
         });
+    }
+    public void cal(){
+        database= FirebaseDatabase.getInstance().getReference("TransactionData");
+        list = new ArrayList<TransactionModel>();
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    TransactionModel user = dataSnapshot.getValue(TransactionModel.class);
+                    if(user.getRecieverId().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                        total+=Integer.parseInt(user.getAmount());
+                        list.add(user);
+                    }
+                }
+                rcvdamount.setText(total.toString());
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 }

@@ -21,7 +21,6 @@ public class UserTrasactionAdapter extends RecyclerView.Adapter<UserTrasactionAd
             this.context=context;
             this.list=list;
         }
-
     @NonNull
         @Override
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
@@ -35,14 +34,12 @@ public class UserTrasactionAdapter extends RecyclerView.Adapter<UserTrasactionAd
                 holder.firstName.setText(user.getRecieverName());
                 holder.amount.setText(user.getAmount());
                 holder.date.setText(user.getDate());
-
         }
         @Override
         public int getItemCount(){
                 System.out.println(list.size()+"size-------------------------");
                 return list.size();
                 }
-
         public static class MyViewHolder extends RecyclerView.ViewHolder {
 
             TextView firstName, amount, date;

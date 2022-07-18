@@ -81,9 +81,7 @@ public class Donate extends AppCompatActivity {
                 databaseReference.child(tid).setValue(transactionModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(Donate.this, "successrjut", Toast.LENGTH_SHORT).show();
-                        Intent i=new Intent(Donate.this,UserTransaction.class);
-                        startActivity(i);
+                        Toast.makeText(Donate.this, "Successfull", Toast.LENGTH_SHORT).show();
                     }
                 });
 

@@ -24,7 +24,6 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
         this.context = context;
         this.list = list;
     }
-
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,10 +43,7 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
                  System.out.println(user.getFullname().toString());
                 System.out.println(user.getDetails().toString());
                 System.out.println(user.getAmount().toString());
-// creating a intent
                 Intent intent = new Intent(view.getContext(),Donate.class);
-
-// creating a bundle object
                 Bundle bundle = new Bundle();
                 bundle.putString("name", user.getFullname());
                 bundle.putString("details", user.getDetails());
@@ -56,8 +52,6 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
                 bundle.putString("recieverId", user.getUserUID());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
-//                AppCompatActivity activity=(AppCompatActivity)view.getContext();
-//                activity.getSupportFragmentManager().beginTransaction().replace(R.id.list_item,new descfragment(user.getFullname(),user.getDetails(),user.getAmount())).addToBackStack(null).commit();
             }
         });
     }
@@ -66,17 +60,13 @@ public class MyAdapter1 extends RecyclerView.Adapter<MyAdapter1.MyViewHolder> {
         System.out.println(list.size()+"size");
         return list.size();
     }
-
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-
         TextView firstName, lastName, age;
-
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             firstName = itemView.findViewById(R.id.fullname);
             lastName = itemView.findViewById(R.id.deatils);
             age = itemView.findViewById(R.id.amount);
-
         }
     }
 
